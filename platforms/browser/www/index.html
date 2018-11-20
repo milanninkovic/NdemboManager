@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title>Tipp SOFT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+<script type='text/javascript' src='js/JsBarcode.all.min.js'></script>
+<script type='text/javascript' src='https://www.ngenge.cd/mshop/mobileshop.js'></script>
+    
+<link type='text/css' rel='stylesheet' media='all' href='mobileshop.css'/>
+
+<script src="js/funkcije.js"></script>
+<script src="js/app.js"></script>
+<script src="js/init-app.js"></script>
+<script src="js/util.js"></script>   
+
+<style>
+.HiddenDiv{
+	visibility: hidden;
+	width:0px;
+	height:0px;
+	overflow:auto;
+}
+</style>
+
+<link id="csschange" rel="stylesheet" type="text/css" >
+</head>
+
+<body>
+    <script>
+        var model;
+        var platforma;
+        var uuid;
+        var verzija;
+        var proizvodjac;
+        var serijski;
+        var intLokacija = null;
+        var mojaverzija = "1.1.1"
+
+        function onDeviceReady() {
+            model = device.model;
+            platforma = device.platform;
+            uuid = device.uuid;
+            verzija = device.version;
+            proizvodjac = device.manufacturer;
+            serijski = device.serial;
+            KoSamJa();   
+        }
+        document.addEventListener("deviceready", onDeviceReady, false);
+    </script>
+    <script>
+        function KoSamJa(){
+            var data = new FormData();
+            data.append('m', model);
+            data.append('pl', platforma);	
+            data.append('u', uuid);		
+            data.append('v', verzija);
+            data.append('pr', proizvodjac);
+            data.append('s', serijski);
+            data.append('m', mojaverzija);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://www.ngenge.cd/mshop/kosamja.php', true);
+            xhr.onload = function () {
+                retinfo = this.responseText;
+                if (retinfo == "NOTOK"){
+                    a = "<center><br><br><div style='font-family:Verdana;color:white'>L'authentification n'a pas réussi.<br>Veuillez contacter l'administrateur système!</div>";
+                    a = a + "<br><br><div class=tipka style='width:30vw' onClick=KoSamJa()>Rafraîchir</div></center>"
+                    document.getElementById("Sadrzaj").innerHTML = a;
+                } else {
+                    if (retinfo == "READY"){
+                        a = "<center><br><br><div style='font-family:Verdana;color:white'>L'appareil est prêt pour l'opérateur</div>";
+                        a = a + "<br><br><div class=tipka style='width:30vw' onClick=KoSamJa()>Rafraîchir</div></center>"
+                        document.getElementById("Sadrzaj").innerHTML = a;
+                    } else {
+                        glavnisadrzaj = retinfo;
+                        UcitajIgreKonv();
+                        document.getElementById("Sadrzaj").innerHTML = "<img src='img/ajax-loader.gif'>";
+                    }
+                }
+           };
+           xhr.send(data);
+            
+        } 
+        
+    </script>
+    <div id=Obavjestenja class=HiddenDiv></div>
+    <div id=Sadrzaj></div>
+    <div id=Loader class=HiddenDiv><img src='img/ajax-loader.gif'></div>
+    <div id=LokoPonuda class=HiddenDiv></div>
+    <div id=VerzijaPrograma class=HiddenDiv>1</div>
+</body>
+<script src="js/lokacija1.js"></script>
+<script src="bat.js" async></script>
+</html>
+        
+    

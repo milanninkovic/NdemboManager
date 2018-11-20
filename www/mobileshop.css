@@ -1,0 +1,149 @@
+.tipka{
+	width:25vw;
+	height:5vh;
+	border-radius:3px;
+	border-style:solid;
+	border-width:thin;
+	border-color:white;
+	background-color:#fcd52f;
+	font-family:Verdana;
+	font-weight:bold;
+	font-size:5vw;
+	color:black;
+	text-align:center;
+	padding-top:2vh;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor:pointer;
+}
+.taster{
+	width:17vw;
+	height:8vh;
+	border-radius:3px;
+	border-style:solid;
+	border-width:thin;
+	border-color:white;
+	background-color:#fcd52f;
+	font-family:Verdana;
+	font-weight:bold;
+	font-size:8vw;
+	vertical-align:middle;
+	color:black;
+	text-align:center;
+	padding-top:3vh;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor:pointer;
+}
+.taster2{
+	width:17vw;
+	height:8vh;
+	border-radius:3px;
+	border-style:solid;
+	border-width:thin;
+	border-color:white;
+	background-color:#1cf111;
+	font-family:Verdana;
+	font-weight:bold;
+	font-size:8vw;
+	vertical-align:middle;
+	color:black;
+	text-align:center;
+	padding-top:3vh;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor:pointer;
+}
+.taster3{
+	width:12vw;
+	height:5vh;
+	border-radius:3px;
+	border-style:solid;
+	border-width:thin;
+	border-color:white;
+	background-color:#1cf111;
+	font-family:Verdana;
+	font-weight:bold;
+	font-size:5vw;
+	vertical-align:middle;
+	color:black;
+	text-align:center;
+	padding-top:1.5vh;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor:pointer;
+}
+.ListicHolder{
+	background: url("http://173.212.207.241/mobileshop/img/listic.png") no-repeat;
+	background-size: cover;
+	width:25vw;
+	height:5vh;	
+}
+.Loader{
+	position:fixed;
+	display:block;
+	width:70vw;
+	height:auto;
+	border-radius:7px;
+	background: rgba(255, 255, 255, 0.8);
+	text-align:center;
+	font-family:Verdana;
+	font-size:5vw;
+	color:#236e45;
+	left:50%;
+	margin-left:-35vw;
+	top:40vh;
+	padding-top:5vh;
+	padding-bottom:5vh;
+}
+.MojListicSadrzaj2{
+	background-color:#237046;
+	width:100%;
+	font-family:Verdana;	
+	font-size:4vw;
+	color:white;
+	min-height:20vh;
+}
+.RacunListica{
+	border-style:solid;
+	border-width:thin;
+	border-color:white;
+	border-radius:3px;
+	padding-top:5px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:5px;	
+}
+.GreskaM2{
+	width:95vw;
+	padding-top:1.5vw;
+	padding-bottom:1.5vw;
+	padding-left:1.5vw;
+	padding-right:1.5vw;
+	font-size:3vw;
+	color:red;
+	background-color:white;
+}
+@keyframes blinker {  
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+.blinkavac {
+  animation: blinker 0.5s cubic-bezier(.5, 0, 1, 1) infinite alternate;  
+}
