@@ -65,6 +65,7 @@
             xhr.open('POST', 'https://www.ngenge.cd/bngo/managermob/kosamja.php', true);
             xhr.onload = function () {
                 retinfo = this.responseText;
+				alert(retinfo);
                 if (retinfo == "NOTOK"){
                     a = "<center><br><br><div style='font-family:Verdana;color:white'>L'authentification n'a pas réussi.<br>Veuillez contacter l'administrateur système!</div>";
                     a = a + "<br><br><div class=tipka style='width:30vw' onClick=KoSamJa()>Rafraîchir</div></center>"
