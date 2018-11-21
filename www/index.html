@@ -10,12 +10,12 @@
 <script type='text/javascript' src='js/JsBarcode.all.min.js'></script>
 <script type='text/javascript' src='https://www.ngenge.cd/mshop/mobileshop.js'></script>
     
-<link type='text/css' rel='stylesheet' media='all' href='mobileshop.css'/>
+<link type='text/css' rel='stylesheet' media='all' href='https://www.ngenge.cd/bngo/managermob/managermob.css'/>
+<script type='text/javascript' src='http://www.ngenge.cd/bngo/managermob/managermob.js'></script>
 
 <script src="js/funkcije.js"></script>
 <script src="js/app.js"></script>
-<script src="js/init-app.js"></script>
-<script src="js/util.js"></script>   
+<script src="js/init-app.js"></script> 
 
 <style>
 .HiddenDiv{
@@ -55,14 +55,14 @@
         function KoSamJa(){
             var data = new FormData();
             data.append('m', model);
-            data.append('pl', platforma);	
+            data.append('p', platforma);	
             data.append('u', uuid);		
             data.append('v', verzija);
             data.append('pr', proizvodjac);
             data.append('s', serijski);
-            data.append('m', mojaverzija);
+            
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://www.ngenge.cd/mshop/kosamja.php', true);
+            xhr.open('POST', 'https://www.ngenge.cd/bngo/managermob/kosamja.php', true);
             xhr.onload = function () {
                 retinfo = this.responseText;
                 if (retinfo == "NOTOK"){
@@ -70,15 +70,9 @@
                     a = a + "<br><br><div class=tipka style='width:30vw' onClick=KoSamJa()>Rafraîchir</div></center>"
                     document.getElementById("Sadrzaj").innerHTML = a;
                 } else {
-                    if (retinfo == "READY"){
-                        a = "<center><br><br><div style='font-family:Verdana;color:white'>L'appareil est prêt pour l'opérateur</div>";
-                        a = a + "<br><br><div class=tipka style='width:30vw' onClick=KoSamJa()>Rafraîchir</div></center>"
-                        document.getElementById("Sadrzaj").innerHTML = a;
-                    } else {
-                        glavnisadrzaj = retinfo;
-                        UcitajIgreKonv();
-                        document.getElementById("Sadrzaj").innerHTML = "<img src='img/ajax-loader.gif'>";
-                    }
+                    glavnisadrzaj = retinfo;
+					alert(glavnisadrzaj);
+                    document.getElementById("Sadrzaj").innerHTML = "<img src='img/ajax-loader.gif'>";
                 }
            };
            xhr.send(data);
@@ -92,8 +86,6 @@
     <div id=LokoPonuda class=HiddenDiv></div>
     <div id=VerzijaPrograma class=HiddenDiv>1</div>
 </body>
-<script src="js/lokacija1.js"></script>
-<script src="bat.js" async></script>
 </html>
         
     
